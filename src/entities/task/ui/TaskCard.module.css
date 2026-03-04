@@ -1,0 +1,40 @@
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  white-space: nowrap;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.dotCompleted {
+  background: #22c55e;
+}
+
+.dotIncomplete {
+  background: #ef4444;
+}
