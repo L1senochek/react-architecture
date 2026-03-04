@@ -1,8 +1,10 @@
+import { memo } from 'react';
+
 import type { TaskCardProps } from './types';
 
 import styles from './TaskCard.module.css';
 
-export function TaskCard({ task }: TaskCardProps) {
+function TaskCardComponent({ task }: TaskCardProps) {
   const dotClassName = [
     styles.dot,
     task.completed ? styles.dotCompleted : styles.dotIncomplete,
@@ -18,3 +20,5 @@ export function TaskCard({ task }: TaskCardProps) {
     </div>
   );
 }
+
+export const TaskCard = memo(TaskCardComponent);

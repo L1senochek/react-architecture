@@ -1,3 +1,5 @@
+import { memo, useCallback } from 'react';
+
 import type { Task } from 'entities/task/model/types';
 
 import { FilterButton } from 'shared/ui/FilterButton';
@@ -13,20 +15,29 @@ const initialTasks: Task[] = [
   { id: '4', title: 'Структура соответствует FSD', completed: false },
 ];
 
-const filters: Array<{ id: Filter; label: string }> = [
+type FilterConfig = { id: Filter; label: string };
+
+const filters: FilterConfig[] = [
   { id: 'all', label: 'Все' },
   { id: 'completed', label: 'Завершенные' },
   { id: 'incomplete', label: 'Незавершенные' },
 ];
 
-export function TaskWidget() {
+function TaskWidgetComponent() {
   const { tasks, filter, setFilter, removeTask } = useTasks(initialTasks);
+
+  const handleFilterClick = useCallback(
+    (id: Filter) => {
+      setFilter(id);
+    },
+    [setFilter],
+  );
 
   return (
     <section className={styles.root}>
       <div className={styles.filters}>
         {filters.map((f) => (
-          <FilterButton key={f.id} isActive={filter === f.id} onClick={() => setFilter(f.id)}>
+          <FilterButton key={f.id} isActive={filter === f.id} onClick={() => handleFilterClick(f.id)}>
             {f.label}
           </FilterButton>
         ))}
@@ -36,3 +47,5 @@ export function TaskWidget() {
     </section>
   );
 }
+
+export const TaskWidget = memo(TaskWidgetComponent);
