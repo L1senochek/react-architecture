@@ -15,7 +15,7 @@ function TaskListComponent({ tasks, onRemove }: TaskListProps) {
     [onRemove],
   );
   if (tasks.length === 0) {
-    return <div className={styles.empty}>Нет задач по текущему фильтру.</div>;
+    return <div className={styles.empty}>Нет задач по текущему фильтру</div>;
   }
 
   return (
