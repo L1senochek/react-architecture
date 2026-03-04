@@ -1,8 +1,7 @@
 import { useMemo, useState } from 'react';
 
 import type { Task } from 'entities/task/model/types';
-
-export type Filter = 'all' | 'completed' | 'incomplete';
+import type { Filter } from './types';
 
 export function useTasks(initial: Task[]): {
   tasks: Task[];
@@ -14,8 +13,14 @@ export function useTasks(initial: Task[]): {
   const [filter, setFilter] = useState<Filter>('all');
 
   const tasks = useMemo(() => {
-    if (filter === 'completed') return items.filter((t) => t.completed);
-    if (filter === 'incomplete') return items.filter((t) => !t.completed);
+    if (filter === 'completed') {
+      return items.filter((task) => task.completed);
+    }
+
+    if (filter === 'incomplete') {
+      return items.filter((task) => !task.completed);
+    }
+
     return items;
   }, [filter, items]);
 
