@@ -316,6 +316,7 @@ export function TaskPage() {
 - https://ibb.co/JFn5TQG6
 - https://ibb.co/ymV4vf2B
 - https://ibb.co/TMNgcCL7
+- https://ibb.co/YBR2bGRr
 
 **Комментарии к скриншотам:**
 
