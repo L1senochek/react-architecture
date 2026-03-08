@@ -1,10 +1,7 @@
-import { memo, useCallback } from 'react';
+import { useCallback } from 'react';
 
-import type { Task } from 'entities/task/model/types';
-import type { Filter } from 'widgets/taskList/model/types';
-import type { FilterConfig } from './types';
-
-import { FilterButton } from 'shared/ui/FilterButton';
+import type { Task, TaskFilter } from 'entities/task/model/types';
+import { TaskFilters } from 'features/task-filters';
 import { useTasks } from 'widgets/taskList/model/useTasks';
 import { TaskList } from 'widgets/taskList/ui/TaskList';
 
@@ -17,39 +14,20 @@ const initialTasks: Task[] = [
   { id: '4', title: 'Структура соответствует FSD', completed: false },
 ];
 
-const filters: FilterConfig[] = [
-  { id: 'all', label: 'Все' },
-  { id: 'completed', label: 'Завершенные' },
-  { id: 'incomplete', label: 'Незавершенные' },
-];
-
-function TaskWidgetComponent() {
+export function TaskWidget() {
   const { tasks, filter, setFilter, removeTask } = useTasks(initialTasks);
 
-  const handleFilterClick = useCallback(
-    (id: Filter) => {
-      setFilter(id);
+  const handleFilterChange = useCallback(
+    (newFilter: TaskFilter) => {
+      setFilter(newFilter);
     },
     [setFilter],
   );
 
   return (
     <section className={styles.root}>
-      <div className={styles.filters}>
-        {filters.map((f) => (
-          <FilterButton
-            key={f.id}
-            isActive={filter === f.id}
-            onClick={() => handleFilterClick(f.id)}
-          >
-            {f.label}
-          </FilterButton>
-        ))}
-      </div>
-
+      <TaskFilters filter={filter} onFilterChange={handleFilterChange} />
       <TaskList tasks={tasks} onRemove={removeTask} />
     </section>
   );
 }
-
-export const TaskWidget = memo(TaskWidgetComponent);
