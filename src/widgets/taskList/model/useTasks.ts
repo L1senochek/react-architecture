@@ -8,7 +8,7 @@ export function useTasks(): {
   tasks: Task[];
   filter: Filter;
   setFilter: (f: Filter) => void;
-  removeTask: (id: string) => void;
+  removeTask: (id: string | number) => void;
   isLoading: boolean;
   isError: boolean;
 } {
@@ -38,8 +38,8 @@ export function useTasks(): {
     return items;
   }, [filter, items]);
 
-  const removeTask = useCallback((id: string) => {
-    setDeletedIds((prev) => new Set(prev).add(id));
+  const removeTask = useCallback((id: string | number) => {
+    setDeletedIds((prev) => new Set(prev).add(String(id)));
   }, []);
 
   return { tasks, filter, setFilter, removeTask, isLoading, isError };
