@@ -5,7 +5,7 @@ export function Button({ variant = 'default', size = 'md', className, ...props }
   const classes = [
     styles.button,
     variant === 'danger' ? styles.danger : '',
-    size === 'sm' ? styles.sm : '',
+    size === 'sm' ? styles.sm : styles.md,
     className ?? '',
   ]
     .filter(Boolean)

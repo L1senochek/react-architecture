@@ -5,11 +5,13 @@ import { registerFormSchema } from '../model/schema';
 import type { RegisterFormValues } from '../model/types';
 import { registerFormFields } from './fields';
 import { FormField } from './FormField/FormField';
+import { SocialLinks } from './SocialLinks/SocialLinks';
 import styles from './RegisterForm.module.css';
 
 export function RegisterForm() {
   const {
     register,
+    control,
     handleSubmit,
     formState: { errors },
   } = useForm<RegisterFormValues>({
@@ -19,8 +21,9 @@ export function RegisterForm() {
       email: '',
       password: '',
       confirmPassword: '',
+      socialLinks: [{ url: '' }],
     },
-    mode: 'onBlur',
+    mode: 'onSubmit',
   });
 
   const onSubmit = (data: RegisterFormValues) => {
@@ -42,6 +45,8 @@ export function RegisterForm() {
             />
           ))}
         </div>
+
+        <SocialLinks control={control} errors={errors.socialLinks} />
 
         <div className={styles.footer}>
           <button type="submit" className={styles.submit}>

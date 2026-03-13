@@ -1,5 +1,6 @@
 import type { FormFieldProps } from './types';
 
+import { Input } from 'shared/ui/Input';
 import styles from './FormField.module.css';
 
 export function FormField({
@@ -16,12 +17,12 @@ export function FormField({
       <label className={styles.label} htmlFor={name}>
         {label}
       </label>
-      <input
+      <Input
         id={name}
         type={type}
-        className={styles.input}
         placeholder={placeholder}
         autoComplete={autoComplete}
+        hasError={Boolean(error)}
         {...register(name)}
       />
       <span className={styles.hint}>{error}</span>
