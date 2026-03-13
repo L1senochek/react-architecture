@@ -1,16 +1,30 @@
 import { useCallback, useMemo, useState } from 'react';
 
 import type { Task } from 'entities/task/model/types';
+import { useGetTasksQuery } from 'entities/task/api/tasksApi';
 import type { Filter } from './types';
 
-export function useTasks(initial: Task[]): {
+export function useTasks(): {
   tasks: Task[];
   filter: Filter;
   setFilter: (f: Filter) => void;
-  removeTask: (id: string) => void;
+  removeTask: (id: string | number) => void;
+  isLoading: boolean;
+  isError: boolean;
 } {
-  const [items, setItems] = useState<Task[]>(initial);
+  const {
+    data: remoteTasks = [],
+    isLoading,
+    isError,
+  } = useGetTasksQuery();
+
+  const [deletedIds, setDeletedIds] = useState<Set<string>>(new Set());
   const [filter, setFilter] = useState<Filter>('all');
+
+  const items = useMemo(
+    () => remoteTasks.filter((task) => !deletedIds.has(String(task.id))),
+    [remoteTasks, deletedIds],
+  );
 
   const tasks = useMemo(() => {
     if (filter === 'completed') {
@@ -24,12 +38,9 @@ export function useTasks(initial: Task[]): {
     return items;
   }, [filter, items]);
 
-  const removeTask = useCallback(
-    (id: string) => {
-      setItems((prev) => prev.filter((t) => t.id !== id));
-    },
-    [],
-  );
+  const removeTask = useCallback((id: string | number) => {
+    setDeletedIds((prev) => new Set(prev).add(String(id)));
+  }, []);
 
-  return { tasks, filter, setFilter, removeTask };
+  return { tasks, filter, setFilter, removeTask, isLoading, isError };
 }
