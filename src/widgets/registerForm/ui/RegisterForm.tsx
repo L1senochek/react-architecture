@@ -1,7 +1,9 @@
 import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
 
-import styles from './RegisterForm.module.css';
+import { registerFormSchema } from '../model/schema';
 import type { RegisterFormValues } from '../model/types';
+import styles from './RegisterForm.module.css';
 
 export function RegisterForm() {
   const {
@@ -9,6 +11,7 @@ export function RegisterForm() {
     handleSubmit,
     formState: { errors },
   } = useForm<RegisterFormValues>({
+    resolver: zodResolver(registerFormSchema),
     defaultValues: {
       username: '',
       email: '',
@@ -37,9 +40,7 @@ export function RegisterForm() {
               className={styles.input}
               placeholder="Введите имя пользователя"
               autoComplete="username"
-              {...register('username', {
-                required: 'Имя пользователя обязательно',
-              })}
+              {...register('username')}
             />
             <span className={styles.hint}>{errors.username && errors.username.message}</span>
           </div>
@@ -54,10 +55,7 @@ export function RegisterForm() {
               className={styles.input}
               placeholder="you@example.com"
               autoComplete="email"
-              {...register('email', {
-                required: 'Email обязателен',
-                validate: (value) => value.includes('@') || 'Email должен содержать символ @',
-              })}
+              {...register('email')}
             />
             <span className={styles.hint}>{errors.email && errors.email.message}</span>
           </div>
@@ -72,13 +70,7 @@ export function RegisterForm() {
               className={styles.input}
               placeholder="Минимум 6 символов"
               autoComplete="new-password"
-              {...register('password', {
-                required: 'Пароль обязателен',
-                minLength: {
-                  value: 6,
-                  message: 'Пароль должен содержать минимум 6 символов',
-                },
-              })}
+              {...register('password')}
             />
             <span className={styles.hint}>{errors.password && errors.password.message}</span>
           </div>
@@ -93,11 +85,7 @@ export function RegisterForm() {
               className={styles.input}
               placeholder="Повторите пароль"
               autoComplete="new-password"
-              {...register('confirmPassword', {
-                required: 'Подтверждение пароля обязательно',
-                validate: (value, formValues) =>
-                  value === formValues.password || 'Пароли должны совпадать',
-              })}
+              {...register('confirmPassword')}
             />
             <span className={styles.hint}>
               {errors.confirmPassword && errors.confirmPassword.message}

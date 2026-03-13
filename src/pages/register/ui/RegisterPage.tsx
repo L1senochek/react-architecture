@@ -1,4 +1,4 @@
-import { RegisterForm } from 'widgets/register-form';
+import { RegisterForm } from 'widgets/registerForm';
 
 import styles from './RegisterPage.module.css';
 
