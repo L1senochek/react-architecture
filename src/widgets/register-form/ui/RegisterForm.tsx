@@ -28,7 +28,7 @@ export function RegisterForm() {
 
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)} noValidate>
         <div className={styles.content}>
-          <div className={styles.field}>
+          <div className={`${styles.field} ${errors.username ? styles.error : ''}`}>
             <label className={styles.label} htmlFor="username">
               Имя пользователя
             </label>
@@ -41,10 +41,10 @@ export function RegisterForm() {
                 required: 'Имя пользователя обязательно',
               })}
             />
-            <span className={styles.error}>{errors.username && errors.username.message}</span>
+            <span className={styles.hint}>{errors.username && errors.username.message}</span>
           </div>
 
-          <div className={styles.field}>
+          <div className={`${styles.field} ${errors.email ? styles.error : ''}`}>
             <label className={styles.label} htmlFor="email">
               Email
             </label>
@@ -59,10 +59,10 @@ export function RegisterForm() {
                 validate: (value) => value.includes('@') || 'Email должен содержать символ @',
               })}
             />
-            <span className={styles.error}>{errors.email && errors.email.message}</span>
+            <span className={styles.hint}>{errors.email && errors.email.message}</span>
           </div>
 
-          <div className={styles.field}>
+          <div className={`${styles.field} ${errors.password ? styles.error : ''}`}>
             <label className={styles.label} htmlFor="password">
               Пароль
             </label>
@@ -80,10 +80,10 @@ export function RegisterForm() {
                 },
               })}
             />
-            <span className={styles.error}>{errors.password && errors.password.message}</span>
+            <span className={styles.hint}>{errors.password && errors.password.message}</span>
           </div>
 
-          <div className={styles.field}>
+          <div className={`${styles.field} ${errors.confirmPassword ? styles.error : ''}`}>
             <label className={styles.label} htmlFor="confirmPassword">
               Подтверждение пароля
             </label>
@@ -99,7 +99,7 @@ export function RegisterForm() {
                   value === formValues.password || 'Пароли должны совпадать',
               })}
             />
-            <span className={styles.error}>
+            <span className={styles.hint}>
               {errors.confirmPassword && errors.confirmPassword.message}
             </span>
           </div>

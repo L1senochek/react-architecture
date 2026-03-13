@@ -45,6 +45,16 @@
   font-size: 20px;
 }
 
+.error .input {
+  border-color: #f97373;
+  box-shadow: 0 0 0 1px rgba(249, 115, 129, 0.6);
+}
+
+.error .input:focus {
+  border-color: #f97373;
+  box-shadow: 0 0 0 2px rgba(249, 115, 129, 0.9);
+}
+
 .input::placeholder {
   color: rgba(255, 255, 255, 0.55);
 }
@@ -55,7 +65,7 @@
   box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.18);
 }
 
-.error {
+.hint {
   font-size: 12px;
   color: #f97373;
   height: 18px;
