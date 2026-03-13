@@ -20,11 +20,7 @@ function TaskFiltersComponent({ filter, onFilterChange }: TaskFiltersProps) {
   return (
     <div className={styles.filters}>
       {FILTER_CONFIG.map(({ id, label }) => (
-        <FilterButton
-          key={id}
-          isActive={filter === id}
-          onClick={() => onFilterChange(id)}
-        >
+        <FilterButton key={id} isActive={filter === id} onClick={() => onFilterChange(id)}>
           {label}
         </FilterButton>
       ))}

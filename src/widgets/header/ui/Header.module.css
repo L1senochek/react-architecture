@@ -3,7 +3,7 @@
   top: 0;
   z-index: 10;
   backdrop-filter: blur(14px);
-  background: rgba(22, 22, 22, 0.9);
+  background: rgba(22, 22, 22, 0.92);
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
@@ -35,16 +35,19 @@
   display: inline-flex;
   align-items: center;
   height: 36px;
-  padding: 0 12px;
+  padding: 12px;
+  min-height: fit-content;
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   background: rgba(255, 255, 255, 0.06);
   color: rgba(255, 255, 255, 0.92);
   cursor: pointer;
+  transition: background 0.2s ease;
 }
 
-.navLink:hover { 
-  text-decoration: none; 
+.navLink:hover {
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.12);
 }
 
 .active {

@@ -1,15 +1,17 @@
 .button {
   height: 36px;
-  padding: 0 12px;
+  padding: 12px;
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   background: rgba(255, 255, 255, 0.06);
   color: rgba(255, 255, 255, 0.92);
   cursor: pointer;
+  min-height: fit-content;
+  transition: background 0.2s ease;
 }
 
 .button:hover {
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.12);
 }
 
 .active {
