@@ -31,7 +31,7 @@ export function RegisterForm() {
   };
 
   return (
-    <section className={styles.root}>
+    <section className={styles.registerForm}>
       <h1 className={styles.title}>Регистрация</h1>
 
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)} noValidate>
