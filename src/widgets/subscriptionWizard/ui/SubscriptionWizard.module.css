@@ -1,0 +1,28 @@
+.subscription {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: fixed;
+  right: 1%;
+  bottom: 1%;
+  width: 100%;
+  max-width: 400px;
+  min-height: 250px;
+  padding: 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgb(22 22 22 / 85%);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.45);
+  gap: 12px;
+}
+
+.wizardForm {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+}
