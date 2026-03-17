@@ -1,20 +1,11 @@
-import {
-  useFieldArray,
-  type Control,
-  type FieldArrayWithId,
-  type FieldErrors,
-} from 'react-hook-form';
+import { useFieldArray, type FieldArrayWithId } from 'react-hook-form';
 
 import { Button } from 'shared/ui/Button';
 import { Input } from 'shared/ui/Input';
 
 import type { RegisterFormValues } from '../../model/types';
+import type { SocialLinksProps } from './types';
 import styles from './SocialLinks.module.css';
-
-interface SocialLinksProps {
-  control: Control<RegisterFormValues>;
-  errors: FieldErrors<RegisterFormValues>['socialLinks'];
-}
 
 export function SocialLinks({ control, errors }: SocialLinksProps) {
   const { fields, append, remove } = useFieldArray({
