@@ -25,6 +25,14 @@ export function Header() {
           >
             Регистрация
           </NavLink>
+          <NavLink
+            to="/ref-examples"
+            className={({ isActive }) =>
+              [styles.navLink, isActive ? styles.active : ''].filter(Boolean).join(' ')
+            }
+          >
+            useRef
+          </NavLink>
         </nav>
       </div>
     </header>
