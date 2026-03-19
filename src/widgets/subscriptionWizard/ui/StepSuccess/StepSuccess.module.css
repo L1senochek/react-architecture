@@ -1,0 +1,9 @@
+.stepSuccess {
+  display: grid;
+  gap: 10px;
+}
+
+.text {
+  margin: 0;
+  font-size: 14px;
+}

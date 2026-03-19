@@ -1,0 +1,38 @@
+.wizardHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.title {
+  margin: 0;
+  font-size: 20px;
+}
+
+.steps {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.stepDots {
+  display: flex;
+  gap: 4px;
+}
+
+.stepDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.5);
+}
+
+.stepDotActive {
+  background: #22c55e;
+}
+
+.stepLabel {
+  margin-left: 4px;
+}

@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 
 import type { TaskFilter } from 'entities/task/model/types';
-import { TaskFilters } from 'features/task-filters';
+import { TaskFilters } from 'features/taskFilters';
 import { Loader } from 'shared/ui/Loader';
 import { useTasks } from 'widgets/taskList/model/useTasks';
 import { TaskList } from 'widgets/taskList/ui/TaskList';
@@ -22,9 +22,7 @@ export function TaskWidget() {
     <section className={styles.root}>
       <TaskFilters filter={filter} onFilterChange={handleFilterChange} />
       {isLoading && <Loader label="Загрузка задач..." />}
-      {isError && (
-        <div>Не удалось загрузить задачи. Попробуйте позже</div>
-      )}
+      {isError && <div>Не удалось загрузить задачи. Попробуйте позже</div>}
       {!isLoading && !isError && <TaskList tasks={tasks} onRemove={removeTask} />}
     </section>
   );

@@ -12,11 +12,7 @@ export function useTasks(): {
   isLoading: boolean;
   isError: boolean;
 } {
-  const {
-    data: remoteTasks = [],
-    isLoading,
-    isError,
-  } = useGetTasksQuery();
+  const { data: remoteTasks = [], isLoading, isError } = useGetTasksQuery();
 
   const [deletedIds, setDeletedIds] = useState<Set<string>>(new Set());
   const [filter, setFilter] = useState<Filter>('all');

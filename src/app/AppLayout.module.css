@@ -1,0 +1,8 @@
+.root {
+  min-height: 100vh;
+}
+
+.main {
+  max-width: 2000px;
+  margin: 0 auto;
+}
