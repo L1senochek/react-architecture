@@ -1,1 +1,1 @@
-export { PreviousInput } from './ui/PreviousInput';
+export { default as PreviousInput } from './ui/PreviousInput';

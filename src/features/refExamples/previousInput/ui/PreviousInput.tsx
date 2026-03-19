@@ -4,7 +4,7 @@ import { Input } from 'shared/ui/Input';
 
 import styles from './PreviousInput.module.css';
 
-export function PreviousInput() {
+function PreviousInput() {
   const [value, setValue] = useState('');
   const previousValueRef = useRef('');
   const [previousValue, setPreviousValue] = useState('');
@@ -40,3 +40,5 @@ export function PreviousInput() {
     </div>
   );
 }
+
+export default PreviousInput;
