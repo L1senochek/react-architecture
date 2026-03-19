@@ -1,7 +1,8 @@
 import { type ChangeEvent, useEffect, useRef, useState } from 'react';
 
-import styles from './previousInput.module.css';
 import { Input } from 'shared/ui/Input';
+
+import styles from './PreviousInput.module.css';
 
 export function PreviousInput() {
   const [value, setValue] = useState('');

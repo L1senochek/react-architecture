@@ -2,8 +2,8 @@ import { useRef } from 'react';
 
 import { Button } from 'shared/ui/Button';
 
-import styles from './clickTimer.module.css';
-import type { ClickData } from './ClickTimer.types';
+import styles from './ClickTimer.module.css';
+import type { ClickData } from '../model/types';
 
 export function ClickTimer() {
   const clickDataRef = useRef<ClickData>({
