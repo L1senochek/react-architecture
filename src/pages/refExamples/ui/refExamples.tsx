@@ -2,6 +2,7 @@ import { ClickTimer } from 'features/refExamples/clickTimer';
 import { PreviousInput } from 'features/refExamples/previousInput';
 import { FocusTracker } from 'features/refExamples/focusTracker';
 import { DebouncedLogger } from 'features/refExamples/debouncedLogger';
+import { WebSocketLogger } from 'features/refExamples/webSocketLogger';
 
 import type { RefExampleItem } from '../model/types';
 
@@ -25,5 +26,10 @@ export const REF_EXAMPLES: RefExampleItem[] = [
     id: 'debounced-logger',
     title: '4) Компонент DebouncedLogger с useRef:',
     content: <DebouncedLogger />,
+  },
+  {
+    id: 'websocket-logger',
+    title: '5) Компонент WebSocketLogger:',
+    content: <WebSocketLogger />,
   },
 ];
