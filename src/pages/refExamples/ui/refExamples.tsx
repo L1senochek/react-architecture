@@ -1,5 +1,6 @@
-import { ClickTimer } from 'features/refExamples/ClickTimer';
-import { PreviousInput } from 'features/refExamples/PreviousInput';
+import { ClickTimer } from 'features/refExamples/clickTimer';
+import { PreviousInput } from 'features/refExamples/previousInput';
+import { FocusTracker } from 'features/refExamples/focusTracker';
 
 import type { RefExampleItem } from '../model/types';
 
@@ -13,5 +14,10 @@ export const REF_EXAMPLES: RefExampleItem[] = [
     id: 'previous-input',
     title: '2) Компонент PreviousInput:',
     content: <PreviousInput />,
+  },
+  {
+    id: 'focus-tracker',
+    title: '3) Компонент FocusTracker:',
+    content: <FocusTracker />,
   },
 ];
