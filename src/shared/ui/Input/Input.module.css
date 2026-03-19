@@ -12,6 +12,21 @@
   font-size: 16px;
 }
 
+.white {
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  color: #111827;
+}
+
+.white::placeholder {
+  color: #9ca3af;
+}
+
+.white:focus {
+  border-color: #a5b4fc;
+  box-shadow: 0 0 0 2px rgba(165, 180, 252, 0.35);
+}
+
 .input::placeholder {
   color: rgba(255, 255, 255, 0.55);
 }
